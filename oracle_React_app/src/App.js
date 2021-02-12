@@ -82,6 +82,16 @@ function App() {
 ]
  }
  
+ window.web3 = new Web3(Web3.currentProvider);
+    const contract = window.web3.eth.contract(abi);
+    const contractAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138"
+    const contractInstance = contract.at(contractAddress);
+
+    contractInstance.methods.setStock([0x58, 0x59, 0x60], 15, 2000).send( { from: 0x5653Aeccd6b3bF0FDB3686cBa09C9F7A8f75aa45}).on ('receipt', ()=>{
+    })
+  }
+
+  
  return (
  
  <div className="value">
